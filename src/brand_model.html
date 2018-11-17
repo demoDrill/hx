@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>车辆品牌型号</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../font/iconfont.css" />
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/template.css" />
+		<link rel="stylesheet" href="../js/lib/honeySwitch.css">
+	</head>
+
+	<body>
+		<div class="main_content_my">
+			<div class="search flex">
+				<div class="search_title">
+					<div class="search flex">
+						<div class="search_box">
+							<span class="searchicon"><i><img src="../image/ic-sousuo@2x.png" alt="" /></i></span><input type="search" class="search_input" id="searchInput" placeholder="搜索"></div><label class="search_label" id="searchText"></label>
+							<a>搜索</a>
+					</div>
+				</div>
+			</div>
+			<div class="search_hint flex">
+				<i><img src="../image/chejiabuhanshui@2x.png"/></i>
+				<span>车价不含税</span>
+			</div>
+			<div class="vehicle_info">
+				<ul class="vehicle_info_ul">
+					<script id="model-template" type="text/template" >
+						{{each item as index}}
+						<li class="flex">
+							<div class="vehicle_info_l">
+								<p>{{index.name}}</p>
+								<div class="vehicle">
+									<span>{{index.type}}</span>
+									<span>{{index.num}}座</span>
+									<span>{{index.time}}</span>
+								</div>
+							</div>
+							<div class="vehicle_info_r">
+								¥{{index.money}}
+							</div>
+						</li>
+						{{/each}}
+					</script>
+				</ul>
+			</div>
+			<!--底部-->
+			<div class="vehicle_info_describe">
+				错误说明:车牌、车型名称、排气量等关键词，支撑中文、英文和拼音输入，如“奔驰”、马自达2.0等
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/dropDown.js"></script>
+	<script src="../js/lib/honeySwitch.js"></script>
+	<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".footer").load('../src/footer/footer.html');
+		var modelData = {
+			item: [{
+					'name':'奥迪AUDI A6 2.4AVA旅行轿车',
+					'val': '保险APP提供哪些服务',
+					'money':'56900',
+					'time':'2014年5月',
+					'num':'5',
+					'type':'手动挡',
+					'description': '以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+				},
+				{
+					'name':'奥迪AUDI A6 2.4AVA旅行轿车',
+					'val': '保险APP提供哪些服务',
+					'money':'56960',
+					'time':'2014年6月',
+					'num':'1',
+					'type':'自动挡',
+					'description': '以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+				},
+				{
+					'name':'奥迪AUDI A6 2.4AVA旅行轿车',
+					'val': '保险APP提供哪些服务',
+					'money':'56200',
+					'time':'2014年7月',
+					'num':'5',
+					'type':'手动挡',
+					'description': '以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+				}
+				
+			]
+		}
+		var html = template("model-template", modelData);
+		$('.vehicle_info_ul').append(html)
+//		$('.assist_template li').each(function() {
+//			$(this).on('tap', function() {
+//				if($(this).find('i').hasClass('rot')) {
+//					$(this).find('i').removeClass('rot');
+//					$(this).next('div').slideUp();
+//				} else {
+//					$(this).find('i').addClass('rot');
+//					$(this).next('div').slideDown();
+//				}
+//
+//			})
+//		});
+	</script>
+
+</html>

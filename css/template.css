@@ -248,3 +248,54 @@ b.colorRed{
 .zf_tongdbtm .tm_xzzhifs .hover div:last-child{width: .32rem;height: .32rem;background: url("../image/xuanzhong@2x.png") no-repeat center;background-size: .32rem .32rem;}
 .zf_tongdbtm .tm_xzzhifs li div:first-child img{width: .5rem;height: .5rem;margin-right: .16rem;}
 .zf_tongdbtm .tm_xzzhifs li div:first-child{display: flex;align-items: center;}
+<<<<<<< HEAD
+=======
+
+/*车辆品牌型号*/
+.vehicle_info{
+	margin: 0rem 0.3rem;
+	justify-content: space-between;
+	align-items: center;
+}
+.vehicle_info li{
+	justify-content: space-between;
+	align-items: center;
+	height: 1.20rem;
+	border-bottom:1px solid  #D8D8D8;
+}
+.vehicle_info li:last-child{
+	border-bottom:0;
+}
+
+.vehicle_info_l>p{
+	font-size:0.28rem;
+	font-family:HelveticaNeue;
+	color:rgba(0,0,0,1);
+}
+.vehicle_info_r{
+	font-size:0.32rem;
+	font-family:HelveticaNeue-Medium;
+	font-weight:500;
+	color:rgba(246,32,48,1);
+	letter-spacing:1px;
+	font-weight: 600;
+}
+.vehicle>span{
+	display: inline-block;
+	font-size:0.24rem;
+	font-family:HelveticaNeue;
+	color:rgba(132,132,132,1);
+}
+.vehicle_info_describe{
+	padding:0rem  0.30rem ;
+	font-size:0.24rem;
+	font-family:HelveticaNeue;
+	color:rgba(132,132,132,1);
+	letter-spacing:1px;
+	position: fixed;
+	bottom: 0;
+	padding-top: 0.2rem;
+	padding-bottom: 0.44rem;
+	background-color: #F7F7F7;
+}
+>>>>>>> ae1b6dffc1900e5c01a00ef8cb4352136f112108
