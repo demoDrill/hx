@@ -25,3 +25,20 @@ window.onresize = function(){
 //	});
 //	
 //});
+
+//加载遮罩层
+zstanc();
+zuijdo();
+function zstanc(){
+    document.write('<div class="jiz_dongt">'+
+    '<div class="mask"></div>'+
+    '<div class="gt_huxzlg">'+
+    '<img src="../image/touxiang@2x.png" alt=""/>'+
+    '<p>加载中，请稍后</p>'+
+    '</div>'+
+    '</div>')
+}
+//顶部导航
+function zuijdo(){
+    $('.hader_zuij').html();
+}
