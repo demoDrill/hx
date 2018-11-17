@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>完善投保信息</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/xncss.css">
+</head>
+<body>
+<div class="zdbj_xinxtop">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus nz_zyus3">被保人信息</div>
+        <!--<div class="nz_zyus">识别行驶证</div>-->
+    </div>
+    <ul class="op_toplist op_toplist1">
+        <script id="zdbj-top" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 0 || index == 2 || index == 3 || index == 4 }}
+                   <div><input class="qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else}}
+                <div><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="zdbj_xinxtop" style="margin: .2rem 0 0;">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus nz_zyus3">被保人信息</div>
+        <div class="nz_zyus" style="display: flex;align-items: center;">
+            <div style="margin-right:.14rem;">
+                不同车主
+            </div>
+            <div class="mui-switch mui-switch-blue mui-switch-mini">
+                <div class="mui-switch-handle"></div>
+            </div>
+        </div>
+    </div>
+    <ul class="op_toplist op_toplist2">
+        <script id="zdbj-bot" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 0 || index == 2 || index == 3 || index == 4 }}
+                <div><input class="qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else}}
+                <div><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+
+<div class="zdbj_xinxtop" style="margin: .2rem 0 0;">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus nz_zyus2">上传影像</div>
+        <div class="nz_zyus" style="display: flex;align-items: center;overflow: hidden;">
+            <div><input class="jt_beiji" type="text" placeholder="车主身份证正面"/></div>
+        </div>
+    </div>
+</div>
+
+<div class="zdbj_xinxtop" style="margin: .2rem 0 1.6rem;">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus nz_zyus4">是否开票</div>
+        <div class="nz_zyus" style="display: flex;align-items: center;">
+            <div style="margin-right:.14rem;">
+            </div>
+            <div class="mui-switch mui-switch-blue mui-switch-mini">
+                <div class="mui-switch-handle"></div>
+            </div>
+        </div>
+    </div>
+    <ul class="op_toplist op_toplist3">
+        <script id="zdbj-sfkp" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 1 || index == 2 || index == 3 || index == 4 }}
+                <div><input class="qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else}}
+                <div><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="rg_tjbtn">提交核保</div>
+</body>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var data = {
+        items: [
+            {
+                'name': '姓名',
+                'val': '请输入姓名或单位名称'
+             },
+            {
+                'name': '证件类型',
+                'val': '请选择您的身份证'
+            },
+            {
+                'name': '证件号码',
+                'val': '50万'
+            },
+            {
+                'name': '手机号码',
+                'val': '不投保'
+            },
+            {
+                'name': '电子邮箱',
+                'val': '投保'
+            }
+        ]
+    };
+    var data2 = {
+        items: [
+            {
+                'name': '姓名',
+                'val': '请输入姓名或单位名称'
+            },
+            {
+                'name': '证件类型',
+                'val': '请选择您的身份证'
+            },
+            {
+                'name': '证件号码',
+                'val': '50万'
+            },
+            {
+                'name': '手机号码',
+                'val': '不投保'
+            },
+            {
+                'name': '电子邮箱',
+                'val': '投保'
+            }
+        ]
+    };
+    var data3 = {
+        items: [
+            {
+                'name': '发票类型',
+                'val': ''
+            },
+            {
+                'name': '开户银行名称',
+                'val': ''
+            },
+            {
+                'name': '银行账号',
+                'val': ''
+            },
+            {
+                'name': '社会信用代码',
+                'val': ''
+            },
+            {
+                'name': '纳税登记电话',
+                'val': ''
+            }
+        ]
+    };
+    var html = template("zdbj-top", data);
+    $('.op_toplist1').append(html);
+    var html2 = template("zdbj-bot", data2);
+    $('.op_toplist2').append(html2);
+    var html3 = template("zdbj-sfkp", data3);
+    $('.op_toplist3').append(html3);
+    //mui开关
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    mui('.mui-content .mui-switch').each(function() { //循环所有toggle
+        //toggle.classList.contains('mui-active') 可识别该toggle的开关状态
+        this.parentNode.querySelector('span').innerText = '状态：' + (this.classList.contains('mui-active') ? 'true' : 'false');
+        /**
+         * toggle 事件监听
+         */
+        this.addEventListener('toggle', function(event) {
+            //event.detail.isActive 可直接获取当前状态
+            this.parentNode.querySelector('span').innerText = '状态：' + (event.detail.isActive ? 'true' : 'false');
+        });
+    });
+</script>
+</html>

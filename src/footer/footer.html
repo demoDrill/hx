@@ -1,0 +1,27 @@
+<div class="db_daoh">
+    <a href="mall.html">
+        <i></i>
+        <b>首页</b>
+    </a>
+    <a href="classification.html">
+        <i></i>
+        <b>帮助</b>
+    </a>
+    <a href="Shopping_Cart.html">
+        <i><em class="hop"></em></i>
+        <b>订单</b>
+    </a>
+    <a href="My.html">
+        <i></i>
+        <b>我的</b>
+    </a>
+</div>
+<!--<script src="js/common.js?v=1" type="text/javascript" charset="utf-8"></script>-->
+<!--<script src="../../js/apiurl.js"></script>-->
+<script type="text/javascript">
+	$('.db_daoh').each(function(){
+		var n = $('.footer').attr("data-id")
+		$(this).find('a').eq(n-1).addClass('hover')
+	})
+	
+</script>

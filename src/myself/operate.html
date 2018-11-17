@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>关于我们</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../font/iconfont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/template.css" />
+	</head>
+
+	<body>
+		<div class="main_content">
+				<div class="issue_des">
+					<ul class="per_template">
+						<script id="myself-template" type="text/html">
+							{{each items as index}}
+							<li class="flex">
+								<span><a href="javascript:;" class="icon_img"><img src="{{index.img}}" alt="" /></a>{{index.name}}</span>
+								<div class="assist_icon flex">
+									<i class="iconfont icon-jiantou-you"></i>
+								</div>
+							</li>
+							{{/each}}
+						</script>
+					</ul>
+				</div>
+				<div class="out_account flex">
+					<span><img src="../../image/tuichu@2x.png"/></span>
+					<span>退出当前登录</span>
+				</div>
+			<!--底部-->
+		</div>
+	</body>
+	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/lib/honeySwitch.js"></script>
+	<script src="../../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".footer").load('../../src/footer/footer.html');
+		var assistdata = {
+			items: [{
+					'name': '关于我们',
+					'img': '../../image/as_regards.png',
+					'val': '',
+				},
+				{
+					'name': '关于华新永康',
+					'img': '../../image/guanyuhuaxinyongkang@2x.png',
+					'val': '',
+				},
+				{
+					'name': '客服',
+					'img': '../../image/kefu@2x.png',
+					'val': '',
+				},
+			]
+		}
+		var html = template("myself-template", assistdata);
+		$('.per_template').append(html);
+		$('.per_template li').each(function(){
+			$(this).on('tap',function(){
+				console.log($(this).index())
+			})
+		});
+	</script>
+
+</html>

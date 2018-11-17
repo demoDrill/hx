@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>报价结果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../font/iconfont.css" />
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/template.css" />
+		<link rel="stylesheet" href="../js/lib/honeySwitch.css">
+	</head>
+	<body>
+		<div class="main_content_off">
+			<div class="NameInsurance flex">
+				<div class="NameInsurance_img flex">
+					<span><img src="../image/pinanmax.png"/></span>
+					<span>平安保险</span>
+				</div>
+				<div class="NameInsurance_price">
+					<span>湘A23456</span>
+					<span>¥4075.5</span>
+				</div>
+			</div>
+			<div class="NameInsurance_describe">
+				<ul>
+					<script id="insurance-template" type="text/html">
+						{{each items.title as index}}
+							<li>
+								<div class="Insure_name flex">
+									<span>{{index.type}}</span>
+									<b>(保险起期{{index.time}})</b>
+								</div>
+								<div class="Insure_name_bot">
+									{{each items.description as index}}
+									<div class="Insure_name_t flex">
+										<span>{{index.name}}</span>
+										<span>{{index.val}}</span>
+										<span>¥{{index.price}}</span>
+									</div>
+									{{/each}}
+								</div>
+							</li>
+						{{/each}}
+					</script>
+				</ul>
+			</div>
+			<div class="NameInsurance_describe_bot">
+				<p>商业险合计：¥2300</p>
+				<p>佣金：¥300</p>
+				<p>限16-18日前支付</p>
+			</div>
+		</div>
+		<div class="submit_hb">
+			提交核保
+		</div>
+	</body>
+	<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/dropDown.js"></script>
+	<script src="../js/lib/honeySwitch.js"></script>
+	<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	var insurancedata = {
+		items: {
+		title:[{
+				'type': '强制险',
+				'time':'2016-05-16',
+		    },
+		{
+				'type': '强制险',
+				'time':'2016-05-16',
+		    }],
+		description: [{
+			'name': '强制险',
+			'val':'投保',
+			'price':'2253',
+	    },{
+			'name': '车船税',
+			'val':'投保',
+			'price':'2253',
+	    }
+	    ,{
+			'name': '车船税',
+			'val':'投保',
+			'price':'2253',
+	    }]
+		},
+	    
+	}
+		var html = template("insurance-template", insurancedata);
+		$('.NameInsurance_describe ul').append(html)
+//		$('.assist_template li').each(function(){
+//			$(this).on('tap',function(){
+//				if ($(this).find('i').hasClass('rot')) {
+//					$(this).find('i').removeClass('rot');
+//					$(this).next('div').slideUp();
+//				} else{
+//					$(this).find('i').addClass('rot');
+//					$(this).next('div').slideDown();
+//				}
+//				
+//		 	})
+//		});
+	</script>
+
+</html>

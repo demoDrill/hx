@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>报价结果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../font/iconfont.css" />
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/template.css" />
+		<link rel="stylesheet" href="../js/lib/honeySwitch.css">
+	</head>
+	<body>
+		<div class="main_content">
+            <div class="vehicle_information_title ">
+	            	<ul class="vehicle_information flex">
+	            		<li class="flex">
+	            			<span><i></i></span>
+	            			<b>修改车辆信息</b>
+	            		</li>
+	            		<li class="flex">
+	            			<span><i></i></span>
+	            			<b>修改险种方案</b>
+	            		</li>
+	            	</ul>
+	        </div>
+	        <div class="vehicle_list">
+	        	<ul>
+	        		<script id="OfferDetails-template" type="text/html">
+						{{each items as index}}
+		        		<li>
+		        			<div class="vehicle_list_li flex">
+		        				<div class="vehicle_list_title flex">
+			        				<span><img src="../image/pinanx2.png"></img></span>
+			        				<div class="cause">
+			        					<span>{{index.name}}<b>报价失败</b></span>
+			        					<span class="abbr">查看原因<i class="look  iconfont icon-jiantou-you"></i></span>	        				
+			        				</div>
+			        			</div>
+			        			<div class="vehicle_list_btn">
+			        				<p>修改车型</p>
+			        			</div>
+		        			</div>
+		        			<div class="info_l">
+		        				{{index.description}}
+		        			</div>
+		        		</li>
+		        		{{/each}}
+					</script>
+	        	</ul>
+	        </div>
+            </div>
+		</div>
+
+	</body>
+	<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/dropDown.js"></script>
+	<script src="../js/lib/honeySwitch.js"></script>
+	<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+	var OfferDetailsData = {
+		items: [{
+				'name':'平安保险',
+				'val': '保险APP提供哪些服务',
+				'description':'以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+			},
+			{
+				'name':'平安保险',
+				'val': '保险的投保流程',
+				'description':'以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+			},
+			{
+				'name':'平安保险',
+				'val': '投保支付方式有哪些',
+				'description':'PICS交互：商业险PICE投保查询异常！您选择的车型尼桑轻型客车不在投保JDEE878787查询返回行业车型编码之内，查询返回。'
+			},
+		]
+	}
+		var html = template("OfferDetails-template", OfferDetailsData);
+		$('.vehicle_list ul').append(html)
+		$('.vehicle_list li').each(function(){
+			$(this).find('.abbr').on('tap',function(){
+				var par = $(this).parent().parent().parent();
+				if ($(this).find('i').hasClass('info_l_hover')) {
+					$(this).find('i').removeClass('info_l_hover');
+					par.next('div').slideUp();
+				} else{
+					$(this).find('i').addClass('info_l_hover');
+					par.next('div').slideDown();
+				}
+				
+		 	})
+		});
+	</script>
+
+</html>

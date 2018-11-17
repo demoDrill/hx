@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>险种选择</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div class="zdbj_xinxtop xzxuanz">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus">商业险</div>
+        <div class="nz_zyus"></div>
+    </div>
+    <ul class="op_toplist op_toplist1">
+        <script id="zdbj-top" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 0 }}
+                   <div><input id="demo2" data-options='{"type":"date","beginYear":2014,"endYear":2016}' class="btn mui-btn mui-btn-block qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else}}
+                <div class="bj_mianfp"><span>不计免赔</span><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="zdbj_xinxtop xzxuanz" style="margin: .2rem 0 1.4rem;">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus">交强险/车船税</div>
+        <div class="nz_zyus"></div>
+    </div>
+    <ul class="op_toplist op_toplist2">
+        <script id="zdbj-bot" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 0}}
+                <div><input id="demo3" data-options='{"type":"date","beginYear":2014,"endYear":2016}' class="btn2 mui-btn mui-btn-block qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else}}
+                <div><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="rg_tjbtn">提交</div>
+</body>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/mui.picker.min.js"></script>
+<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var data = {
+        items: [
+            {
+                'name': '起保日期',
+                'val': '2018-02-10'
+             },
+            {
+                'name': '车损险',
+                'val': '不投保'
+            },
+            {
+                'name': '三者险',
+                'val': '50万'
+            },
+            {
+                'name': '司机责任险',
+                'val': '不投保'
+            },
+            {
+                'name': '乘客责任险',
+                'val': '投保'
+            }
+        ]
+    };
+    var data2 = {
+        items: [
+            {
+                'name': '起保日期',
+                'val': '2018-02-10'
+            }
+        ]
+    };
+    var html = template("zdbj-top", data);
+    $('.op_toplist1').append(html);
+    var html2 = template("zdbj-bot", data2);
+    $('.op_toplist2').append(html2);
+    //mui开关
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    mui('.mui-content .mui-switch').each(function() { //循环所有toggle
+        //toggle.classList.contains('mui-active') 可识别该toggle的开关状态
+        this.parentNode.querySelector('span').innerText = '状态：' + (this.classList.contains('mui-active') ? 'true' : 'false');
+        /**
+         * toggle 事件监听
+         */
+        this.addEventListener('toggle', function(event) {
+            //event.detail.isActive 可直接获取当前状态
+            this.parentNode.querySelector('span').innerText = '状态：' + (event.detail.isActive ? 'true' : 'false');
+        });
+    });
+    //时间日期选择
+    (function($) {
+        $.init();
+        var result = $('#demo2')[0];
+        var btns = $('.btn');
+        btns.each(function(i, btn) {
+            btn.addEventListener('tap', function() {
+                var _self = this;
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        result.innerText = '选择结果: ' + rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                } else {
+                    var optionsJson = this.getAttribute('data-options') || '{}';
+                    var options = JSON.parse(optionsJson);
+                    var id = this.getAttribute('id');
+                    /*
+                     * 首次显示时实例化组件
+                     * 示例为了简洁，将 options 放在了按钮的 dom 上
+                     * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                     */
+                    _self.picker = new $.DtPicker(options);
+                    _self.picker.show(function(rs) {
+                        /*
+                         * rs.value 拼合后的 value
+                         * rs.text 拼合后的 text
+                         * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                         * rs.m 月，用法同年
+                         * rs.d 日，用法同年
+                         * rs.h 时，用法同年
+                         * rs.i 分（minutes 的第二个字母），用法同年
+                         */
+                        result.value =  rs.text;
+                        /*
+                         * 返回 false 可以阻止选择框的关闭
+                         * return false;
+                         */
+                        /*
+                         * 释放组件资源，释放后将将不能再操作组件
+                         * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                         * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                         * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                         */
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+
+            }, false);
+        });
+    })(mui);
+    //时间选择2
+    (function($) {
+        $.init();
+        var result = $('#demo3')[0];
+        var btns = $('.btn2');
+        btns.each(function(i, btn) {
+            btn.addEventListener('tap', function() {
+                var _self = this;
+                if(_self.picker) {
+                    _self.picker.show(function (rs) {
+                        result.innerText = '选择结果: ' + rs.text;
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                } else {
+                    var optionsJson = this.getAttribute('data-options') || '{}';
+                    var options = JSON.parse(optionsJson);
+                    var id = this.getAttribute('id');
+                    /*
+                     * 首次显示时实例化组件
+                     * 示例为了简洁，将 options 放在了按钮的 dom 上
+                     * 也可以直接通过代码声明 optinos 用于实例化 DtPicker
+                     */
+                    _self.picker = new $.DtPicker(options);
+                    _self.picker.show(function(rs) {
+                        /*
+                         * rs.value 拼合后的 value
+                         * rs.text 拼合后的 text
+                         * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+                         * rs.m 月，用法同年
+                         * rs.d 日，用法同年
+                         * rs.h 时，用法同年
+                         * rs.i 分（minutes 的第二个字母），用法同年
+                         */
+                        result.value =  rs.text;
+                        /*
+                         * 返回 false 可以阻止选择框的关闭
+                         * return false;
+                         */
+                        /*
+                         * 释放组件资源，释放后将将不能再操作组件
+                         * 通常情况下，不需要示放组件，new DtPicker(options) 后，可以一直使用。
+                         * 当前示例，因为内容较多，如不进行资原释放，在某些设备上会较慢。
+                         * 所以每次用完便立即调用 dispose 进行释放，下次用时再创建新实例。
+                         */
+                        _self.picker.dispose();
+                        _self.picker = null;
+                    });
+                }
+
+            }, false);
+        });
+    })(mui);
+</script>
+</html>

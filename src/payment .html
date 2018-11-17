@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>支付</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/mui.picker.min.css" />
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div class="zf_tongdtop">
+    <ul class="op_chezxx">
+        <script id="cz_jibenxx" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                <div>{{val.val}}</div>
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="zf_tongdcet">
+    <ul class="et_chezxx">
+        <script id="bx_tbje" type="text/html">
+            {{each items as val index}}
+            {{if index == 0}}
+            <li>
+                <div>{{val.name}}</div>
+                <div class="je_jmg">{{val.val}}</div>
+            </li>
+            {{else}}
+            <li>
+                <div>{{val.name}}</div>
+                <div class="color_red">{{val.val}}</div>
+            </li>
+            {{/if}}
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="zf_tongdbtm">
+    <ul class="tm_xzzhifs">
+        <script id="fk_dyxz" type="text/html">
+            {{each items as val index}}
+            {{if index == 0}}
+            <li class="hover">
+                <div><img style="width: 1.75rem;height: .5rem;" src="{{val.src}}" alt=""/>{{val.name}}</div>
+                <div></div>
+            </li>
+            {{else}}
+            <li>
+                <div><img src="{{val.src}}" alt=""/>{{val.name}}</div>
+                <div></div>
+            </li>
+            {{/if}}
+            {{/each}}
+        </script>
+
+
+    </ul>
+</div>
+<div class="rg_tjbtn">马上支付</div>
+</body>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var data = {
+        items: [
+            {
+                'name': '车主',
+                'val': '张三'
+             },
+            {
+                'name': '车号',
+                'val': '湘A12345'
+            },
+            {
+                'name': '车辆种类',
+                'val': '搅拌车'
+            }
+        ]
+    };
+    var data2 = {
+        items: [
+            {
+                'name': '投保公司',
+                'val': '平安保险'
+            },
+            {
+                'name': '保险金额',
+                'val': '¥123.00'
+            },
+            {
+                'name': '代理人佣金',
+                'val': '¥123.00'
+            }
+        ]
+    };
+    var data3 = {
+        items: [
+            {
+                'name': '',
+                'src': '../image/zhifubao@2x.png'
+            },
+            {
+                'name': '微信支付',
+                'src': '../image/weixin@2x.png'
+            },
+            {
+                'name': '在线支付',
+                'src': '../image/yinlian@2x.png'
+            },
+            {
+                'name': '银行转账',
+                'src': '../image/yinhangkazhuanzhang@2x.png'
+            },
+            {
+                'name': '支付二维码',
+                'src': '../image/erweima@2x.png'
+            }
+        ]
+    };
+
+    var html = template("cz_jibenxx", data);
+    $('.op_chezxx').append(html);
+    var html2 = template("bx_tbje", data2);
+    $('.et_chezxx').append(html2);
+    var html3 = template("fk_dyxz", data3);
+    $('.tm_xzzhifs').append(html3);
+    //单选
+    mui('.tm_xzzhifs').on('tap','li',function(){
+        $(this).addClass('hover').siblings().removeClass('hover')
+    })
+</script>
+</html>

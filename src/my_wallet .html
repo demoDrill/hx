@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>我的钱包</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <style>
+        .mui-pull-bottom-tips {  text-align: center;  background-color: #fff;  font-size: 15px;  line-height: 40px;  color: #777;  }
+        .mui-fullscreen{  top: 4rem; height: auto; }
+        .mui-segmented-control.mui-scroll-wrapper .mui-scroll{width: 100%;display: flex;}
+        .mui-segmented-control.mui-scroll-wrapper .mui-scroll a{width: 50%;padding: 0;}
+        .mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active{background: url("../image/chexiandingdanxiahuaxin@2x.png") no-repeat bottom center; background-size: 100% .02rem;color: #000;}
+        .mui-slider .mui-segmented-control.mui-segmented-control-inverted~.mui-slider-group .mui-slider-item{border-top: 0;}
+        .mui-segmented-control.mui-scroll-wrapper{height: 40px;}
+        .mui-table-view-cell:after{right: 15px;}
+    </style>
+</head>
+<body>
+<div class="my_deqianb">
+    <div class="nb_wcbox">
+        <p class="nb_topzhye">账户总额(元)</p>
+        <p class="nb_cetzhye">12325.00</p>
+        <p class="nb_botzhye">累计收益：298.00</p>
+    </div>
+    <div class="nb_xfbox">
+        <div class="ox_zhansye">
+            <div>
+                <p>20133.00</p>
+                <p>结算中</p>
+            </div>
+            <div>
+                <p class="colf62">20133.00</p>
+                <p>可提现余额</p>
+            </div>
+        </div>
+        <input class="ox_tixianbtn" type="button" value="提现"/>
+    </div>
+</div>
+<div class="kqh_tuanx">
+    <div class="mui-content">
+        <div id="slider" class="mui-slider mui-fullscreen">
+            <div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+                <div class="mui-scroll">
+                    <a class="mui-control-item mui-active" href="#item1mobile">
+                        佣金收入
+                    </a>
+                    <a class="mui-control-item" href="#item2mobile">
+                        提现记录
+                    </a>
+                </div>
+            </div>
+            <div class="mui-slider-group">
+                <div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+                    <div id="scroll1" class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span>+1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span class="col008">-1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span class="">+1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span class="col008">-1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="item2mobile" class="mui-slider-item mui-control-content">
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span>+1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span class="col008">-1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span class="">+1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="yj_shouruz">
+                                        <div class="uz_left">
+                                            <p><span class="col008">-1876</span>在线投保(元)</p>
+                                            <p>2017-10-28 11:12:23</p>
+                                        </div>
+                                        <div class="uz_right">
+                                            <p>8232</p>
+                                            <p>可用余额</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/mui.pullToRefresh.js"></script>
+<script src="../js/mui.pullToRefresh.material.js"></script>
+<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script>
+    mui.init();
+    (function($) {
+        //阻尼系数
+        var deceleration = mui.os.ios?0.003:0.0009;
+        $('.mui-scroll-wrapper').scroll({
+            bounce: false,
+            indicators: true, //是否显示滚动条
+            deceleration:deceleration
+        });
+        $.ready(function() {
+            //循环初始化所有下拉刷新，上拉加载。
+            $.each(document.querySelectorAll('.mui-slider-group .mui-scroll'), function(index, pullRefreshEl) {
+                $(pullRefreshEl).pullToRefresh({
+                    down: {
+                        callback: function() {
+                            var self = this;
+                            setTimeout(function() {
+                                var ul = self.element.querySelector('.mui-table-view');
+                                ul.insertBefore(createFragment(ul, index, 10, true), ul.firstChild);
+                                self.endPullDownToRefresh();
+                            }, 1000);
+                        }
+                    },
+                    up: {
+                        callback: function() {
+                            var self = this;
+                            setTimeout(function() {
+                                var ul = self.element.querySelector('.mui-table-view');
+                                ul.appendChild(createFragment(ul, index, 5));
+                                self.endPullUpToRefresh();
+                            }, 1000);
+                        }
+                    }
+                });
+            });
+            var createFragment = function(ul, index, count, reverse) {
+                var length = ul.querySelectorAll('li').length;
+                var fragment = document.createDocumentFragment();
+                var li;
+                for (var i = 0; i < count; i++) {
+                    li = document.createElement('li');
+                    li.className = 'mui-table-view-cell';
+                    li.innerHTML = '第' + (index + 1) + '个选项卡子项-' + (length + (reverse ? (count - i) : (i + 1)));
+                    fragment.appendChild(li);
+                }
+                return fragment;
+            };
+        });
+    })(mui);
+</script>
+</body>
+</html>

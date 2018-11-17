@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>支付结果</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../font/iconfont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/template.css" />
+	</head>
+
+	<body>
+		<div class="main_content">
+			<div class="pay_result flex">
+				<div class="pay_img">
+					<img src="../../image/zhifuchenggong@2x.png" />
+				</div>
+				<p>恭喜你，支付成功</p>
+			</div>
+			<div class="pay_remark">
+				<ul class="pay_remark_ul">
+					<script id="pay-template" type="text/html">
+						{{each items as index}}
+						<li class="flex">
+							<div class="pay_name">
+								车牌号码：
+							</div>
+							<div class="pay_money">
+								<span class="pay_time">{{index.name}}</span>
+							</div>
+						</li>
+						<li class="flex">
+							<div class="pay_name">
+								支付金额
+							</div>
+							<div class="pay_money">
+								<span class="pay_time">{{index.val}}</span>
+							</div>
+						</li>
+						<li class="flex">
+							<div class="pay_name">
+								支付时间
+							</div>
+							<div class="pay_money">
+								<span class="pay_time">{{index.time}}</span>
+							</div>
+						</li>
+						{{/each}}
+					</script>
+
+				</ul>
+			</div>
+			<!--底部-->
+			<div class="pay_btn ">
+				<p>上传影像</p>
+				<p>请补充 出单所需的影像</p>
+			</div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/lib/honeySwitch.js"></script>
+	<script src="../../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".footer").load('../../src/footer/footer.html');
+		var payData = {
+			items: [{
+				'name': '湘A23455',
+				'val': '4256.00元',
+				'time': '2016-09-27 11:08:43'
+			}, ]
+		}
+		var html = template("pay-template", payData);
+		$('.pay_remark_ul').append(html);
+		$('.per_template li').each(function() {
+			$(this).on('tap', function() {
+				console.log($(this).index())
+			})
+		});
+	</script>
+
+</html>

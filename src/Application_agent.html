@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>代理人申请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div class="cw_dailirt"><img src="../image/dailirenshenqing@2x.png" alt=""/></div>
+<div class="zdbj_xinxtop">
+    <ul class="op_toplist op_toplist1">
+        <script id="zdbj-top" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 0 || index == 2 || index == 6}}
+                   <div><input class="qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else}}
+                <div><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+
+<div class="txsq_tixian_btn" style="padding-top: 1.5rem;padding-bottom: .5rem;">
+    <input type="button" value="提现"/>
+    <p>如有疑问，请联系<a href="#">客服</a></p>
+</div>
+</body>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var data = {
+        items: [
+            {
+                'name': '姓名',
+                'val': '请输入您的真实姓名'
+             },
+            {
+                'name': '证件类型',
+                'val': '请选择证件类型'
+            },
+            {
+                'name': '证件号码',
+                'val': '请输入您的证件号'
+            },
+            {
+                'name': '性别',
+                'val': '请选择性别'
+            },
+            {
+                'name': '出生日期',
+                'val': '请输入您的出生日期'
+            },
+            {
+                'name': '所在地区',
+                'val': '省-市-区(县)'
+            },
+            {
+                'name': '详细地址',
+                'val': '请输入xx大道(镇)xx小区(村)xx栋'
+            }
+        ]
+    };
+    var html = template("zdbj-top", data);
+    $('.op_toplist1').append(html);
+</script>
+</html>

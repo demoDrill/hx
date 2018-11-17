@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>我的车辆</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../font/iconfont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/template.css" />
+	</head>
+
+	<body>
+		<div class="main_content_my">
+			<div class="quote">
+				以下是按您最近的报价时间排序，点击可快速重新报价
+			</div>
+			<div class="vehicle_information">
+				<ul>
+					<script id="myCard-template" type="text/html">
+						{{each items as index}}
+							{{if index.type == "normal"}}
+								<li class="blender">
+							{{/if}}
+							{{if index.type == "blank"}}
+								<li class="plate_number">
+							{{/if}}
+							{{if index.type == "immediately"}}
+								<li class="expire">
+							{{/if}}
+							{{if index.type == "lose"}}
+								<li class="efficacy">
+							{{/if}}
+								<div class="information_l flex">
+									<div class="information_mark">
+										<span><em>车牌号</em></span>
+										<span>车主：<b>{{index.name}}</b></span>
+									</div>
+									<div class="information_Master">
+										<span>{{index.description}}</span>
+										<span>出厂时间：{{index.time}}</span>
+									</div>
+								</div>
+								<div class="information_r">
+									
+								</div>
+							</li>
+						{{/each}}
+					</script>
+				</ul>
+			</div>
+			<!--底部-->
+			<div class="footer" data-id="4"></div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/lib/honeySwitch.js"></script>
+	<script src="../../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".footer").load('../../src/footer/footer.html');
+		var assistdata = {
+			items: [{
+					'name': '袁时',
+					'type':'normal',
+					'description': '搅拌机',
+					'time':'2017-03-12'
+				},
+				{
+					'name': '袁时',
+					'description': '汽车起重机',
+					'type':'blank',
+					'time':'2017-03-12'
+				},
+				{
+					'name': '袁时',
+					'description': '泵车',
+					'type':'immediately',
+					'time':'2017-03-12'
+				},
+				{
+					'name': '袁时',
+					'description': '搅拌机',
+					'type':'lose',
+					'time':'2017-03-12'
+				},
+			]
+		}
+		var html = template("myCard-template", assistdata);
+		$('.vehicle_information ul').append(html);
+		$('.vehicle_information li').each(function(){
+			$(this).on('tap',function(){
+				console.log($(this).index())
+			})
+		});
+	</script>
+
+</html>

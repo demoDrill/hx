@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../font/iconfont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/template.css" />
+	</head>
+
+	<body>
+		<div class="main_content">
+            <div class="recommend">
+            	<div class="recommend_img">
+            		<img src="../../image/touxiang@2x.png"/>
+            	</div>
+            	<div class="recommend_appellation flex">
+            		<span>刘经理</span>
+            		<b>主管</b>
+            	</div>
+            	<div class="person_name">
+            		<span class="nae">推荐人:赵四</span>
+            		<span class="recommend_phone">1309283742</span>
+            	</div>
+            	<div class="gift">
+            		推荐有礼
+            	</div>
+            </div>
+            <div class="recommend_list">
+            	<ul class="recommend_list_ul">
+            			<script id="client-template" type="text/html">
+						{{each items as index}}
+            		<li>
+            			<div class="recommend_num flex">
+            				<div class="recommend_num_name">
+            					<span>{{index.name}}</span>
+            					<b>普通会员</b>
+            				</div>
+            				<div class="recommend_num_n">
+            					订单总数
+            					<span>{{index.num}}</span>
+            				</div>
+            			</div>
+            			<div class="recommend_time flex">
+            				<div class="recommend_time_ipone">手机号:{{index.phone}}</div>
+            				<div class="recommend_time_t">注册时间:{{index.time}}</div>
+            			</div>
+            		</li>
+            		
+            		{{/each}}
+					</script>
+            	</ul>
+            </div>
+			<!--
+				
+			底部-->
+			<div class="footer" data-id="4"></div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/lib/honeySwitch.js"></script>
+	<script src="../../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".footer").load('../../src/footer/footer.html');
+		var clientData = {
+			items: [{
+					'name': '王五',
+					'time': '2017-10-28 11:12:23',
+					'phone': '17263546276',
+					'num':100,
+				},
+				{
+					'name': '王五',
+					'time': '2017-10-28 11:12:23',
+					'phone': '17263546276',
+					'num':100,
+				},
+				{
+					'name': '王五',
+					'time': '2017-10-28 11:12:23',
+					'phone': '17263546276',
+					'num':100,
+				},
+				{
+					'name': '王五',
+					'time': '2017-10-28 11:12:23',
+					'phone': '17263546276',
+					'num':100,
+				},
+				
+			]
+		}
+		var html = template("client-template", clientData);
+		$('.recommend_list_ul').append(html);
+		$('.per_template li').each(function(){
+			$(this).on('tap',function(){
+				console.log($(this).index())
+			})
+		});
+	</script>
+
+</html>

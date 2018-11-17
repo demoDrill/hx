@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>操作</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../font/iconfont.css" />
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../css/template.css" />
+		<link rel="stylesheet" href="../js/lib/honeySwitch.css">
+	</head>
+	<body>
+		<div class="main_content">
+			<div class="assist_centre flex">
+				<div class="lx_icon"><img src="../image/lianxikefu@2x.png"/></div>
+				<span>联系客服</span>
+			</div>
+			<div class="issue">
+				您是否遇到以下问题?
+			</div>
+			<div class="issue_des">
+				<ul class="assist_template">
+					<script id="assist-template" type="text/html">
+						{{each items as index}}
+					<li class="flex">
+						<span>{{index.val}}</span>
+						<div class="assist_icon">
+							<i class="iconfont icon-jiantou-you"></i>
+						</div>
+					</li>
+					<div class="assist-template_description ">
+						{{index.description}}
+					</div>
+					{{/each}}
+					</script>
+					
+				</ul>
+			</div>
+			<!--底部-->
+			<div class="footer" data-id="2"></div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/dropDown.js"></script>
+	<script src="../js/lib/honeySwitch.js"></script>
+	<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".footer").load('../src/footer/footer.html');
+	var assistdata = {
+		items: [{
+				'val': '保险APP提供哪些服务',
+				 'description':'以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+			},
+			{
+				'val': '保险的投保流程',
+				 'description':'以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+			},
+			{
+				'val': '投保支付方式有哪些',
+				 'description':'以“发挥专业优势，架设桥梁纽带，立足三一，辐射上下游产业链，带动和服务行业保险保障需求”为新的定位，努力将华新永康打造成一家“客户至上，服务第一，诚信守规，健康专业”的保险代理公司。'
+			},
+		]
+	}
+		var html = template("assist-template", assistdata);
+		$('.assist_template').append(html)
+		$('.assist_template li').each(function(){
+			$(this).on('tap',function(){
+				if ($(this).find('i').hasClass('rot')) {
+					$(this).find('i').removeClass('rot');
+					$(this).next('div').slideUp();
+				} else{
+					$(this).find('i').addClass('rot');
+					$(this).next('div').slideDown();
+				}
+				
+		 	})
+		});
+	</script>
+
+</html>

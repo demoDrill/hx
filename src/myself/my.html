@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../font/iconfont.css" />
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" type="text/css" href="../../css/global.css?v=1" />
+		<link rel="stylesheet" type="text/css" href="../../css/index.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/template.css" />
+	</head>
+
+	<body>
+		<div class="main_content_my">
+			<div class="head_res">
+				<div class="head_res_top flex">
+					<div class="img_tit_head">
+						<img src="../../image/touxiang@2x.png" />
+					</div>
+					<div class=" title_of">
+						<div class="title_of_name flex">
+							<span>经理</span>
+							<div class="title_of_name_r flex">
+								<img src="../../image/zhiweirenzheng@2x.png"></img>
+							</div>
+						</div>
+						<div class="professionatal">
+							主管
+						</div>
+					</div>
+
+				</div>
+				<div class="mask_myselt">
+					<div class="mine">
+						我的资产
+					</div>
+					<div class="mine_xx">
+						<ul class="mine_ul  flex">
+							<li>
+								<span>20133.00</span>
+								<span>结算中</span>
+							</li>
+							<li>
+								<span>20133.00</span>
+								<span>可提现余额</span>
+							</li>
+							<li>
+								<span>20133.00</span>
+								<span>结算中</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="issue_des">
+					<ul class="per_template">
+						<script id="myself-template" type="text/html">
+							{{each items as index}}
+							<li class="flex">
+								<span><a href="javascript:;" class="icon_img"><img src="{{index.img}}" alt="" /></a>{{index.name}}</span>
+								<div class="assist_icon flex">
+									{{if index.num !== undefined || index.val !== undefined}}
+									  <b class="{{index.class}}">{{index.val}}</b>
+									{{/if}}
+									<i class="iconfont icon-jiantou-you"></i>
+								</div>
+							</li>
+							{{/each}}
+						</script>
+					</ul>
+				</div>
+			</div>
+			<!--底部-->
+			<div class="footer" data-id="4"></div>
+		</div>
+	</body>
+	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/mui.min.js"></script>
+	<script src="../../js/lib/honeySwitch.js"></script>
+	<script src="../../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+	<script src="../../js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".footer").load('../../src/footer/footer.html');
+		var assistdata = {
+			items: [{
+					'name': '车险订单',
+					'img': '../../image/chexiandingdan.png',
+					'val': '',
+				},
+				{
+					'name': '我的车辆',
+					'img': '../../image/qiche@2x.png',
+					'num':1,
+					'val': '1台车辆即将脱保',
+					'class':'colorRed'
+				},
+				{
+					'name': '推荐客户',
+					'img': '../../image/tj@2x.png',
+					'val': '邀请有礼',
+					'class':'colorkf'
+				},
+				{
+					'name': '个人信息',
+					'img': '../../image/gerenxinxi@2x.png',
+					'val': '',
+				},
+				{
+					'name': '关于我们',
+					'img': '../../image/guanyuwomen@2x.png',
+					'val': '',
+				},
+			]
+		}
+		var html = template("myself-template", assistdata);
+		$('.per_template').append(html);
+		$('.per_template li').each(function(){
+			$(this).on('tap',function(){
+				console.log($(this).index())
+			})
+		});
+	</script>
+
+</html>

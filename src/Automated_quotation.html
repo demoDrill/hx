@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>自动报价</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/index.css">
+</head>
+<body>
+<div class="zdbj_xinxtop">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus nz_zyus1">车辆信息</div>
+        <div class="nz_zyus nz_zyus2">识别行驶证</div>
+    </div>
+    <ul class="op_toplist op_toplist1">
+        <script id="zdbj-top" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 1 || index == 2 || index == 6 || index == 7 }}
+                   <div><input class="qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else if index == 8}}
+                    <div class="mui-switch mui-switch-blue mui-switch-mini" style="width: 15%;">
+                        <div class="mui-switch-handle"></div>
+                    </div>
+                {{else}}
+                <div><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="zdbj_xinxtop" style="margin: .2rem 0 1.4rem;">
+    <div class="tp_jiawenz">
+        <div class="nz_zyus nz_zyus3">车主信息</div>
+        <div class="nz_zyus nz_zyus2">识别身份证</div>
+    </div>
+    <ul class="op_toplist op_toplist2">
+        <script id="zdbj-bot" type="text/html">
+            {{each items as val index}}
+            <li>
+                <div>{{val.name}}</div>
+                {{if index == 1 || index == 2 || index == 6 || index == 7 }}
+                <div><input class="qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{else if index == 8}}
+                <div class="mui-switch mui-switch-blue mui-switch-mini" style="width: 15%;">
+                    <div class="mui-switch-handle"></div>
+                </div>
+                {{else}}
+                <div><input class="jt_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+<div class="db_lianbtn">
+    <div>快捷人工询价</div>
+    <div>提交</div>
+</div>
+</body>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var data = {
+        items: [
+            {
+                'name': '设备编号',
+                'val': '三一设备编号特有的，可不填写'
+             },
+            {
+                'name': '车架号码',
+                'val': '请输入17位车架号'
+            },
+            {
+                'name': '发动机号',
+                'val': '请输入车辆发动机号'
+            },
+            {
+                'name': '品牌型号',
+                'val': '请选择品牌型号'
+            },
+            {
+                'name': '所属性质',
+                'val': '请选择所属性质'
+            },
+            {
+                'name': '使用性质',
+                'val': '请选择使用性质'
+            },
+            {
+                'name': '核载质量',
+                'val': '请输入核定载重量(单位:千克)'
+            },
+            {
+                'name': '初登日期',
+                'val': '请输入上牌日期'
+            },
+            {
+                'name': '是否过户',
+                'val': ''
+            }
+        ]
+    };
+    var data2 = {
+        items: [
+            {
+                'name': '姓名',
+                'val': '请输入姓名或单位名称'
+            },
+            {
+                'name': '证件类型',
+                'val': '身份证'
+            },
+            {
+                'name': '证件号码',
+                'val': '请输入证件号码'
+            }
+        ]
+    };
+    var html = template("zdbj-top", data);
+    $('.op_toplist1').append(html);
+    var html2 = template("zdbj-bot", data2);
+    $('.op_toplist2').append(html2);
+    //mui开关
+    mui.init({
+        swipeBack:true //启用右滑关闭功能
+    });
+    mui('.mui-content .mui-switch').each(function() { //循环所有toggle
+        //toggle.classList.contains('mui-active') 可识别该toggle的开关状态
+        this.parentNode.querySelector('span').innerText = '状态：' + (this.classList.contains('mui-active') ? 'true' : 'false');
+        /**
+         * toggle 事件监听
+         */
+        this.addEventListener('toggle', function(event) {
+            //event.detail.isActive 可直接获取当前状态
+            this.parentNode.querySelector('span').innerText = '状态：' + (event.detail.isActive ? 'true' : 'false');
+        });
+    });
+</script>
+</html>
