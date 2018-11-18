@@ -296,3 +296,75 @@ b.colorRed{
 	padding-bottom: 0.44rem;
 	background-color: #F7F7F7;
 }
+
+
+/*下拉框*/
+.mask_pull{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	z-index: 100000;
+	background-color: white;
+}
+.mask_pull_name{
+	font-size:0.28rem;
+	font-family:PingFangSC-Medium;
+	font-weight:600;
+	color:rgba(0,0,0,1);
+	letter-spacing:1px;
+	
+}
+.mask_pull_tit{
+	justify-content: space-between;
+	align-items: center;
+	height: 0.9rem;
+	padding: 0rem .3rem;
+	border-bottom: 1px solid #D8D8D8;
+	    
+}
+.mask_pull_tit>span>i{
+	display: inline-block;
+	font-style: normal;
+}
+.mask_pull_ul>li{
+	font-size:0.28rem;
+	padding: 0rem .3rem;
+	font-family:PingFangSC-Regular;
+	font-weight:400;
+	letter-spacing:2px;
+	border-bottom: 1px solid #D8D8D8;
+	height: .9rem;
+	justify-content: space-between;
+	align-items: center;
+}
+.mask_pull_ul a{
+	display: inline-block;
+	color:rgba(0,0,0,1);
+}
+.mask_pull_ul{
+	max-height: 4rem;
+	overflow-y: auto;
+}
+.mask_hover a{
+	display: inline-block;
+	color: #F62030;
+}
+.correct{
+	font-size: .5rem;
+	display: none;
+}
+.correct_hover{
+	color: #F62030;
+	font-size: .5rem;
+	display: inline-block;
+}
+.shade{
+	position: fixed;
+    top: 0rem;
+    left: 0rem;
+    bottom: 0rem;
+    right: 0rem;
+    z-index:99999;
+    background-color: #888;
+    opacity: 0.5;
+}

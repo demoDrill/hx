@@ -49,8 +49,8 @@
 						<li class="flex">
 							<div class="plate">车牌号码</div>
 							<div class="plate_dex flex">
-								<b>请输入车牌号码</b>
-								<div class="le"><i class="iconfont icon-jiantou-you"></i></div>
+								<b>请输入车牌号码411</b>
+								<div class="le pull-down-mask"><i class="iconfont icon-jiantou-you"></i></div>
 							</div>
 						</li>
 						<li class="flex">
@@ -123,8 +123,38 @@
 	<script src="js/lib/honeySwitch.js"></script>
 	<script src="js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
 	<script src="js/template.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/mask.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-		$(".footer").load('src/footer/footer.html');
+	$(".footer").load('src/footer/footer.html');
+	$(document.body).on("click", ".pull-down-mask", function () {
+        ShowTooltip({
+        	attrContarner:{
+					item: [{
+						'name': '身份证3',
+					},
+					{
+						'name': '身份证4',
+					},
+					{
+						'name': '身份证5',
+					},{
+						'name': '身份证6',
+					},
+					{
+						'name': '身份证7',
+					},
+					{
+						'name': '身份证8',
+					},
+					{
+						'name': '身份证10',
+					}]
+				},
+            sureFunction: function () {
+            	 
+            }
+        })
+   });
 	</script>
 
 </html>
