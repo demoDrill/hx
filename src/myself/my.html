@@ -58,7 +58,7 @@
 					<ul class="per_template">
 						<script id="myself-template" type="text/html">
 							{{each items as index}}
-							<li class="flex">
+							<li class="flex" data-hsrc="{{index.hsrc}}" onclick="gzrtz(this)">
 								<span><a href="javascript:;" class="icon_img"><img src="{{index.img}}" alt="" /></a>{{index.name}}</span>
 								<div class="assist_icon flex">
 									{{if index.num !== undefined || index.val !== undefined}}
@@ -73,7 +73,24 @@
 				</div>
 			</div>
 			<!--底部-->
-			<div class="footer" data-id="4"></div>
+			<div class="db_daoh">
+				<a href="../../index.html">
+					<i></i>
+					<b>首页</b>
+				</a>
+				<a href="../assist.html">
+					<i></i>
+					<b>帮助</b>
+				</a>
+				<a href="order_list.html">
+					<i><em class="hop"></em></i>
+					<b>订单</b>
+				</a>
+				<a class="hover" href="my.html">
+					<i></i>
+					<b>我的</b>
+				</a>
+			</div>
 		</div>
 	</body>
 	<script src="../../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
@@ -82,35 +99,40 @@
 	<script src="../../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
 	<script src="../../js/template.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-		$(".footer").load('../../src/footer/footer.html');
+//		$(".footer").load('../../src/footer/footer.html');
 		var assistdata = {
 			items: [{
 					'name': '车险订单',
 					'img': '../../image/chexiandingdan.png',
 					'val': '',
+					'hsrc':'order_list.html'
 				},
 				{
 					'name': '我的车辆',
 					'img': '../../image/qiche@2x.png',
 					'num':1,
 					'val': '1台车辆即将脱保',
-					'class':'colorRed'
+					'class':'colorRed',
+					'hsrc':'myCard.html'
 				},
 				{
 					'name': '推荐客户',
 					'img': '../../image/tj@2x.png',
 					'val': '邀请有礼',
-					'class':'colorkf'
+					'class':'colorkf',
+					'hsrc':'recommend.html'
 				},
 				{
 					'name': '个人信息',
 					'img': '../../image/gerenxinxi@2x.png',
 					'val': '',
+					'hsrc':'personal_information.html'
 				},
 				{
 					'name': '关于我们',
 					'img': '../../image/guanyuwomen@2x.png',
 					'val': '',
+					'hsrc':'operate.html'
 				},
 			]
 		}
@@ -121,7 +143,9 @@
 				console.log($(this).index())
 			})
 		});
-		
+		function gzrtz(_this){
+			window.location.href = $(_this).attr('data-hsrc');
+		}
 	</script>
 
 </html>

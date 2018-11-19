@@ -19,7 +19,7 @@
 					<ul class="per_template">
 						<script id="myself-template" type="text/html">
 							{{each items as index}}
-							<li class="flex">
+							<li class="flex" onclick="gzrtz(this)" data-hsrc="{{index.src}}">
 								<span><a href="javascript:;" class="icon_img"><img src="{{index.img}}" alt="" /></a>{{index.name}}</span>
 								<div class="assist_icon flex">
 									<i class="iconfont icon-jiantou-you"></i>
@@ -42,22 +42,25 @@
 	<script src="../../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
 	<script src="../../js/template.js" type="text/javascript" charset="utf-8"></script>
 	<script>
-		$(".footer").load('../../src/footer/footer.html');
+//		$(".footer").load('../../src/footer/footer.html');
 		var assistdata = {
 			items: [{
 					'name': '关于我们',
 					'img': '../../image/as_regards.png',
 					'val': '',
+					'src': ''
 				},
 				{
 					'name': '关于华新永康',
 					'img': '../../image/guanyuhuaxinyongkang@2x.png',
 					'val': '',
+					'src': 'About.html'
 				},
 				{
 					'name': '客服',
 					'img': '../../image/kefu@2x.png',
 					'val': '',
+					'src': ''
 				},
 			]
 		}
@@ -68,6 +71,9 @@
 				console.log($(this).index())
 			})
 		});
+function gzrtz(_this){
+	window.location.href = $(_this).attr('data-hsrc');
+}
 	</script>
 
 </html>
