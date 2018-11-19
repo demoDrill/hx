@@ -6,6 +6,6 @@ input[type="submit"],
 input[type="reset"] {-webkit-appearance: none;}
 textarea {	-webkit-appearance: none;}
 html {font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif;color: #1a191e;font-size: 12px;height: 100%;}
-body {min-width: 320px;margin: 0 auto !important;color: #1a191e;background: #fff !important;height: 100%;}
+body {min-width: 320px;margin: 0 auto !important;color: #1a191e;background: #f7f7f7 !important;height: 100%; }
 /*登录*/
 a:active {color: white;}

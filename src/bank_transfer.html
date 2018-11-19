@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>代理人申请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/template.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <style>
+        /*非内联必要样式*/
+        .fy_zzyh .op_toplist .qb_beiji{background: none;padding: 0;}
+        .fy_zzyh .op_toplist img{width: .57rem;height: .57rem;display: inline-block;vertical-align: middle;position: relative;top: -2px;margin-right: .1rem;}
+        .fy_zzyh .op_toplist .fz_xinxbtn input{width: 1.75rem;height: .56rem;text-align: center;background: #F62030;font-size: .24rem;color: #fff;border-radius: .1rem;line-height: .56rem;}
+        .fy_zzyh .op_toplist .fz_xinxbtn{display: flex;align-items: center; flex-direction:row-reverse;}
+        .dj_shangcpz{background: #fff;padding: .4rem .5rem;margin-top: .2rem;}
+        .dj_shangcpz .pz_top{position: relative;width: 3.2rem;height: 2.2rem;margin: 0 auto;overflow: hidden;}
+        .dj_shangcpz .pz_top img{display: block;width: 3.2rem;height: 2.2rem;}
+        .dj_shangcpz .pz_top p{position: absolute;top: 50%;text-align: center;font-size: .28rem;color: #000000;line-height: 1;margin-top: -.14rem;display: block;width: 100%;}
+        .dj_shangcpz .pz_top input{top: 0;left: 0;right: 0;bottom: 0;position: absolute;opacity: 0;}
+        .dj_shangcpz .pz_tijsj{margin-top: .4rem;text-align: center;font-size: .28rem;color: #000;}
+        .dj_shangcpz .pz_tjbtn{height: .8rem;width: 100%;text-align: center;font-size:.36rem;color: #fff;border-radius: .1rem;background: #F62030;padding: 0;margin-top: .3rem; }
+        .zh_youqints{padding: .3rem;margin-top: .2rem;background: #fff;}
+        .zh_youqints div{font-size: .28rem;color: #000;line-height: 1;margin-bottom: .2rem;}
+        .zh_youqints p{font-size: .24rem;color: #000;line-height: 1.5;margin-top: .1rem;}
+    </style>
+</head>
+<body>
+<div class="zdbj_xinxtop fy_zzyh">
+    <ul class="op_toplist op_toplist1">
+        <script id="zdbj-top" type="text/html">
+            {{each items as val index}}
+            <li>
+                {{if index == 0 }}
+                <div><img src="{{val.img}}" alt=""/>{{val.name}}</div>
+                <div class="fz_xinxbtn"><input class="qb_beiji" type="button" placeholder="" value="{{val.val}}"/></div>
+                {{else}}
+                <div>{{val.name}}</div>
+                <div><input class="qb_beiji" type="text" placeholder="{{val.val}}"/></div>
+                {{/if}}
+            </li>
+            {{/each}}
+        </script>
+    </ul>
+</div>
+
+<div class="dj_shangcpz">
+    <div class="pz_top">
+        <img src="../image/shangchuanpinzheng@2x.png" alt=""/>
+        <p>点击上传汇款凭证</p>
+        <input type="file"/>
+    </div>
+    <div class="pz_tijsj">已提交凭证2017-02-23 18:1</div>
+    <input class="pz_tjbtn" type="button" value="提交"/>
+</div>
+<div class="zh_youqints">
+    <div>友情提示：</div>
+    <p>1、汇款后请在第一时间内联系我们,告知您的汇款银行、金额、时间及用户信息</p>
+    <p>2、请并保留汇款凭证，并点击下方按钮及时上传，以便网站及时为您查账充值</p>
+    <p>3、关闭页面后,请可以去“个人中心-车险订单”，查看未完成订单</p>
+</div>
+</body>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/mui.min.js"></script>
+<script src="../js/main.js?v=1" type="text/javascript" charset="utf-8"></script>
+<script src="../js/template.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var data = {
+        items: [
+            {
+                'name': '平安保险',
+                'val': '复制账号信息',
+                'img':'../image/pinanx2.png'
+             },
+            {
+                'name': '开户行',
+                'val': '中国农业银行重庆江北新南路支行',
+                'img':''
+            },
+            {
+                'name': '账户',
+                'val': '3917 71721 81821 828 3',
+                'img':''
+            },
+            {
+                'name': '户名',
+                'val': '重庆猪八戒网络有限公司',
+                'img':''
+            }
+        ]
+    };
+    var html = template("zdbj-top", data);
+    $('.op_toplist1').append(html);
+</script>
+</html>

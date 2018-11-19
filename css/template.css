@@ -124,9 +124,7 @@ textarea {
    margin-right: 0.2rem;
 }
 
-
 /*个人中心模板*/
-
 .assist_icon>b{
 	font-size:0.26rem;
 	font-family:HelveticaNeue;
@@ -146,7 +144,6 @@ b.colorRed{
 	padding: 0rem 0.3rem;
 	margin-top: 0.2rem;
 	background-color: white;
-	
 }
 .recommend_num{
 	justify-content: space-between;
@@ -193,7 +190,6 @@ b.colorRed{
 	color:rgba(246,32,48,1);
 	line-height:28px;
 }
-
 .recommend_time_ipone{
 	font-size:0.24rem;
 	font-family:HelveticaNeue;
@@ -217,8 +213,6 @@ b.colorRed{
 .recommend_time_t{
 	font-weight: 600;
 }
-
-
 .zdbj_xinxtop .op_toplist{padding: 0 .3rem;}
 .zdbj_xinxtop .op_toplist li{font-size: .28rem;color: #000;line-height: .9rem;border-bottom: 1px solid #D8D8D8;display: flex;justify-content: space-between;align-items: center;}
 .zdbj_xinxtop .op_toplist input{padding:0 .42rem 0 0;margin: 0;border: 0;font-size: 0.26rem;text-align: right;}
@@ -248,8 +242,6 @@ b.colorRed{
 .zf_tongdbtm .tm_xzzhifs .hover div:last-child{width: .32rem;height: .32rem;background: url("../image/xuanzhong@2x.png") no-repeat center;background-size: .32rem .32rem;}
 .zf_tongdbtm .tm_xzzhifs li div:first-child img{width: .5rem;height: .5rem;margin-right: .16rem;}
 .zf_tongdbtm .tm_xzzhifs li div:first-child{display: flex;align-items: center;}
-<<<<<<< HEAD
-=======
 
 /*车辆品牌型号*/
 .vehicle_info{
@@ -266,7 +258,6 @@ b.colorRed{
 .vehicle_info li:last-child{
 	border-bottom:0;
 }
-
 .vehicle_info_l>p{
 	font-size:0.28rem;
 	font-family:HelveticaNeue;
@@ -298,4 +289,3 @@ b.colorRed{
 	padding-bottom: 0.44rem;
 	background-color: #F7F7F7;
 }
->>>>>>> ae1b6dffc1900e5c01a00ef8cb4352136f112108
