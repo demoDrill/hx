@@ -248,6 +248,8 @@ b.colorRed{
 .zf_tongdbtm .tm_xzzhifs .hover div:last-child{width: .32rem;height: .32rem;background: url("../image/xuanzhong@2x.png") no-repeat center;background-size: .32rem .32rem;}
 .zf_tongdbtm .tm_xzzhifs li div:first-child img{width: .5rem;height: .5rem;margin-right: .16rem;}
 .zf_tongdbtm .tm_xzzhifs li div:first-child{display: flex;align-items: center;}
+<<<<<<< HEAD
+=======
 
 /*车辆品牌型号*/
 .vehicle_info{
@@ -296,6 +298,7 @@ b.colorRed{
 	padding-bottom: 0.44rem;
 	background-color: #F7F7F7;
 }
+<<<<<<< HEAD
 
 
 /*下拉框*/
@@ -368,3 +371,6 @@ b.colorRed{
     background-color: #888;
     opacity: 0.5;
 }
+=======
+>>>>>>> ae1b6dffc1900e5c01a00ef8cb4352136f112108
+>>>>>>> fde30b46fdb697b329cd078ab83e337752e5a9f0
